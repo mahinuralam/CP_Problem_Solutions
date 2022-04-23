@@ -1,0 +1,1 @@
+{"name":"Local: contest2","url":"e:\\Solves\\contest2.cpp","tests":[{"id":1649841723172,"input":"4\n6\nab\ncb\ndb\naa\ncc\nef\n7\naa\nbb\ncc\nac\nca\nbb\naa\n4\nkk\nkk\nab\nab\n5\njf\njf\njk\njk\njk","output":"5\n6\n0\n6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Solves\\contest2.cpp","group":"local","local":true}
