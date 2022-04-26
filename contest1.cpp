@@ -1,7 +1,5 @@
-#include <bits/stdc++.h>
-#define FAST                          \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(0), cout.tie(0);
+#include<bits/stdc++.h>
+#define FAST ios_base::sync_with_stdio(false); cin.tie(0), cout.tie(0);
 #define ll long long
 //#define endl '\n'
 using namespace std;
@@ -9,93 +7,50 @@ using namespace std;
 int main()
 {
     ll t;
-    cin >> t;
-    while (t--)
+    cin>>t;
+    while(t--)
     {
         ll n;
-        cin >> n;
-        string s;
-        cin >> s;
-
-        if (n == 1)
-        {
-            if (s[0] == 'W')
+        cin>>n;
+        ll ar[n];
+        map<char,ll>left,right,same;
+        for(int i=0;i<n;i++){
+            string s;
+            cin>>s;
+            char chl = s[0];
+            char chr = s[1];
+    
+            if(chl==chr)
             {
-                cout << "YES" << endl;
+                same[chl]++;
             }
-            else
-            {
-                cout << "NO" << endl;
-            }
-            continue;
+            left[chl]++;
+            right[chr]++;
         }
 
-        if (n == 2)
+        ll ans=0;
+        for(char i='a'; i<='k'; i++)
         {
-            if (s == "WR" || s == "WB" || s == "RW" || s == "BW" || s == "RR" || s == "BB")
-            {
-                cout << "NO" << endl;
-            }
-            else 
-            {
-                cout<<"YES"<<endl;
-            }
-            continue;
+            cout<<left[i]<<" left "<<i<<" right "<<right[i]<<endl;
+            ans += (left[i] * (left[i]-1))/2;
+            ans += (right[i] * (right[i]-1))/2;
+        }c
+
+        cout<<ans<<endl;
+        ll neg=0;
+        for(char i='a'; i<='k'; i++)
+        {
+            cout<<same[i]<<"  same "<<i<<endl;
+            neg += (same[i] * (same[i]-1))/2;
         }
 
-        string ss;
-        ss = s;
+        cout<<neg<<endl;
 
-        ll flag = 0;
+        cout<<ans-(neg*2)<<endl;
 
-        vector<string> v;
-
-        string z;
-        for (int i = 0; i < ss.size(); i++)
-        {
-            if (s[i] == 'W')
-            {
-                v.push_back(z);
-                z.clear();
-            }
-            else if(i == ss.size() - 1)
-            {
-                z += s[i];
-                v.push_back(z);
-                z.clear();
-            }
-            else
-            {
-                z += s[i];
-            }
-        }
-
-        //cout << t << endl;
-        for (int i = 0; i < v.size(); i++)
-        {
-            //cout << v[i] << endl;
-
-            set<char> st;
-            for (int j = 0; j < v[i].size(); j++)
-            {
-                st.insert(v[i][j]);
-            }
-            // cout<<st.size()  <<" size "<<endl;
-            if (st.size() == 1)
-            {
-                flag = 1;
-            }
-        }
-
-        if (flag == 1)
-        {
-            cout << "NO" << endl;
-        }
-        else
-        {
-            cout << "YES" << endl;
-        }
+        
     }
 
+        
     return 0;
 }
