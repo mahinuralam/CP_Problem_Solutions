@@ -44,7 +44,12 @@ int main()
         }
         pos2 = pos2 - pos + 1;
         ll x = pos2 - 2;
-        
+        if(x<=0)
+        {
+            cout<<0<<endl;
+            continue;
+        }
+
         if(x==1)
         {
             cout<<x<<endl;
