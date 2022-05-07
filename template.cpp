@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 {
+    FAST;
     ll t;
     cin >> t;
     while (t--)
