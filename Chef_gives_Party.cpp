@@ -13,16 +13,20 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n;
-        cin >> n;
-        ll ar[n];
+        ll n, x, k;
+        cin >> n >> x >> k;
 
-        for (int i = 0; i < n; i++)
+        ll total = n * x;
+
+        if (total > k)
         {
-            cin >> ar[i];
+            cout << "NO" << endl;
+        }
+        else
+        {
+            cout << "YES" << endl;
         }
     }
 
     return 0;
 }
-

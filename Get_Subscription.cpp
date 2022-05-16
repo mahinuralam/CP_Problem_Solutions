@@ -15,14 +15,15 @@ int main()
     {
         ll n;
         cin >> n;
-        ll ar[n];
-
-        for (int i = 0; i < n; i++)
+        if (n > 30)
         {
-            cin >> ar[i];
+            cout << "YES" << endl;
+        }
+        else
+        {
+            cout << "NO" << endl;
         }
     }
 
     return 0;
 }
-

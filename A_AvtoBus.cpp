@@ -15,14 +15,23 @@ int main()
     {
         ll n;
         cin >> n;
-        ll ar[n];
 
-        for (int i = 0; i < n; i++)
+        if (n < 4 || n % 2 != 0)
         {
-            cin >> ar[i];
+            cout << -1 << endl;
+        }
+        else
+        {
+            if (n % 6 == 0)
+            {
+                cout << n / 6 << " " << n / 4 << endl;
+            }
+            else
+            {
+                cout << n / 6 + 1 << " " << n / 4 << endl;
+            }
         }
     }
 
     return 0;
 }
-

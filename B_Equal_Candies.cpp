@@ -16,13 +16,19 @@ int main()
         ll n;
         cin >> n;
         ll ar[n];
-
+        ll mn = 1e18;
         for (int i = 0; i < n; i++)
         {
             cin >> ar[i];
+            mn = min(ar[i], mn);
         }
+        ll sm = 0;
+        for (int i = 0; i < n; i++)
+        {
+            sm += (ar[i] - mn);
+        }
+        cout << sm << endl;
     }
 
     return 0;
 }
-

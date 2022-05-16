@@ -13,16 +13,14 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n;
-        cin >> n;
-        ll ar[n];
+        ll a, b, n;
+        cin >> a >> b >> n;
 
-        for (int i = 0; i < n; i++)
-        {
-            cin >> ar[i];
-        }
+        ll left = abs(b - a);
+        ll right = abs(n - left);
+        // cout << left << " aa " << right << endl;
+        cout << min(left, right) << endl;
     }
 
     return 0;
 }
-

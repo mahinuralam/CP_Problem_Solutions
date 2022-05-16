@@ -13,16 +13,22 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n;
-        cin >> n;
-        ll ar[n];
+        ll l1, r1, l2, r2;
+        cin >> l1 >> r1 >> l2 >> r2;
 
-        for (int i = 0; i < n; i++)
+        if ((l1 <= r2 && l1 >= l2))
         {
-            cin >> ar[i];
+            cout << l1 << endl;
+        }
+        else if ((l2 <= r1 && l2 >= l1))
+        {
+            cout << l2 << endl;
+        }
+        else
+        {
+            cout << l2 + l1 << endl;
         }
     }
 
     return 0;
 }
-
