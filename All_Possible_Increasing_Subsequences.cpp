@@ -76,7 +76,7 @@ int main()
         {
             ll val = query(m[a[i]] - 1) + 1;
             ans = (ans + val) % mod;
-            update(m[a[i]], ans);
+            update(m[a[i]], val);
         }
 
         cout << "Case " << ++tc << ": " << ans << endl;
