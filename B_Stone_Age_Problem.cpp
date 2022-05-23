@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-    FAST;
+    fast;
     ll n, q;
     cin >> n >> q;
     ll ar[n + 5];

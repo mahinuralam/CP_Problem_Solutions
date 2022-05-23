@@ -1,35 +1,36 @@
-#include<bits/stdc++.h>
-#define FAST ios_base::sync_with_stdio(false); cin.tie(0), cout.tie(0);
+#include <bits/stdc++.h>
+#define FAST                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(0), cout.tie(0);
 #define ll long long
 //#define endl '\n'
 using namespace std;
- 
-void init_code(){
-    FAST;
-    #ifndef ONLINE_JUDGE
+
+void init_code()
+{
+    fast;
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output6.txt", "w", stdout);
-    #endif 
+#endif
 }
 
 int main()
 {
     init_code();
     ll t;
-    cin>>t;
-    while(t--)
+    cin >> t;
+    while (t--)
     {
         ll n;
-        cin>>n;
+        cin >> n;
         ll ar[n];
 
-        for(int i=0;i<n;i++){
-            cin>>ar[i];
+        for (int i = 0; i < n; i++)
+        {
+            cin >> ar[i];
         }
-
-        
     }
 
-        
     return 0;
 }

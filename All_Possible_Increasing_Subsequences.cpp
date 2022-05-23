@@ -35,7 +35,7 @@ ll query(ll idx)
 
 int main()
 {
-    FAST;
+    fast;
     ll t, tc = 0;
     cin >> t;
     while (t--)

@@ -25,7 +25,7 @@ void dfs(ll node, ll par)
 
 int main()
 {
-    FAST;
+    fast;
     ll t;
     cin >> t;
     while (t--)
