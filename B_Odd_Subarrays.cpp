@@ -8,21 +8,31 @@ using namespace std;
 
 int main()
 {
-    fast;
+    FAST;
     ll t;
     cin >> t;
     while (t--)
     {
         ll n;
         cin >> n;
-        ll ar[n], ar2[n];
+        ll ar[n];
 
         for (int i = 0; i < n; i++)
         {
             cin >> ar[i];
         }
-        ll m;
-        cin >> m;
+
+        ll inv = 0;
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (ar[i] > ar[i + 1])
+            {
+                inv++;
+                i++;
+            }
+        }
+
+        cout << inv << endl;
     }
 
     return 0;
