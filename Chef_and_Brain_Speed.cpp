@@ -9,18 +9,17 @@ using namespace std;
 int main()
 {
     FAST;
-    ll t;
-    cin >> t;
-    while (t--)
-    {
-        ll n;
-        cin >> n;
 
-        for (int i = 0; i < n; i++)
-        {
-            string name;
-            ll num;
-        }
+    ll n, k;
+    cin >> n >> k;
+
+    if (k > n)
+    {
+        cout << "YES" << endl;
+    }
+    else
+    {
+        cout << "NO" << endl;
     }
 
     return 0;

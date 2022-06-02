@@ -13,14 +13,12 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n;
-        cin >> n;
+        ll x, y, z;
+        cin >> x >> y >> z;
 
-        for (int i = 0; i < n; i++)
-        {
-            string name;
-            ll num;
-        }
+        ll total = x * 5 + y * 10;
+
+        cout << total / z << endl;
     }
 
     return 0;

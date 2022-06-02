@@ -1,47 +1,62 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-typedef long long ll;
-#define MAX 500
-
-int multiply(int x, int res[], int res_size);
-
-void factorial(int n)
+#define mx 100001
+int arr[mx];
+int tree[mx * 3];
+void init(int node, int b, int e)
 {
-    int res[MAX];
-    res[0] = 1;
-    int res_size = 1;
-    for (int x = 2; x <= n; x++)
-        res_size = multiply(x, res, res_size);
-
-    for (int i = res_size - 1; i >= 0; i--)
-        cout << res[i];
+    if (b == e)
+    {
+        tree[node] = arr[b];
+        return;
+    }
+    int Left = node * 2;
+    int Right = node * 2 + 1;
+    int mid = (b + e) / 2;
+    init(Left, b, mid);
+    init(Right, mid + 1, e);
+    tree[node] = tree[Left] + tree[Right];
 }
-
-int multiply(int x, int res[], int res_size)
+int query(int node, int b, int e, int i, int j)
 {
-    int carry = 0;
-    for (int i = 0; i < res_size; i++)
-    {
-        int prod = res[i] * x + carry;
-        res[i] = prod % 10;
-        carry = prod / 10;
-    }
-
-    while (carry)
-    {
-        res[res_size] = carry % 10;
-        carry = carry / 10;
-        res_size++;
-    }
-    return res_size;
+    if (i > e || j < b)
+        return 0; //বাইরে চলে গিয়েছে
+    if (b >= i && e <= j)
+        return tree[node]; //রিলেভেন্ট সেগমেন্ট
+    int Left = node * 2;   //আরো ভাঙতে হবে
+    int Right = node * 2 + 1;
+    int mid = (b + e) / 2;
+    int p1 = query(Left, b, mid, i, j);
+    int p2 = query(Right, mid + 1, e, i, j);
+    return p1 + p2; //বাম এবং ডান পাশের যোগফল
 }
-
+void update(int node, int b, int e, int i, int newvalue)
+{
+    if (i > e || i < b)
+        return; //বাইরে চলে গিয়েছে
+    if (b >= i && e <= i)
+    { //রিলেভেন্ট সেগমেন্ট
+        tree[node] = newvalue;
+        return;
+    }
+    int Left = node * 2; //আরো ভাঙতে হবে
+    int Right = node * 2 + 1;
+    int mid = (b + e) / 2;
+    update(Left, b, mid, i, newvalue);
+    update(Right, mid + 1, e, i, newvalue);
+    tree[node] = tree[Left] + tree[Right];
+}
 int main()
 {
+    READ("in");
     int n;
     cin >> n;
-    factorial(n);
+    repl(i, n)
+            cin >>
+        arr[i];
+    init(1, 1, n);
 
+    update(1, 1, n, 2, 0);
+    cout << query(1, 1, n, 1, 3) << endl;
+    update(1, 1, n, 2, 2);
+    cout << query(1, 1, n, 2, 2) << endl;
     return 0;
 }
