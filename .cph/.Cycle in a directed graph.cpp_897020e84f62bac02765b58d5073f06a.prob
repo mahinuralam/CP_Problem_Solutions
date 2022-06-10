@@ -1,0 +1,1 @@
+{"name":"Local: Cycle in a directed graph","url":"e:\\Solves\\CP_Problem_Solutions\\Cycle in a directed graph.cpp","tests":[{"id":1654796156059,"input":"4\n1 2\n2 3\n3 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Solves\\CP_Problem_Solutions\\Cycle in a directed graph.cpp","group":"local","local":true}
