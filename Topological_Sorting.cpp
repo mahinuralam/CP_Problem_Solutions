@@ -6,22 +6,25 @@
 //#define endl '\n'
 using namespace std;
 
-const ll sz = 1e5 + 5;
+const int sz = 1e5 + 7;
 
-ll vis[sz];
-ll dfsVis[sz];
-vector<ll> adj[sz];
+vector<int> adj[sz];
+stack<int> stk;
+bool vis[sz];
+bool dfsVis[sz];
 
-bool dfs(int node)
+bool findTopoSort(int node)
 {
     vis[node] = 1;
     dfsVis[node] = 1;
+
+    sort(adj[node].rbegin(), adj[node].rend());
 
     for (int child : adj[node])
     {
         if (vis[child] == 0)
         {
-            if (dfs(child) == 1)
+            if (findTopoSort(child) == 1)
             {
                 return true;
             }
@@ -32,35 +35,42 @@ bool dfs(int node)
         }
     }
     dfsVis[node] = 0;
+    stk.push(node);
     return false;
 }
 
 int main()
 {
     FAST;
-    ll n;
-    cin >> n;
 
-    for (int i = 0; i < n - 1; i++)
+    ll n, k;
+    cin >> n >> k;
+
+    for (int i = 1; i <= k; i++)
     {
         ll u, v;
         cin >> u >> v;
         adj[u].push_back(v);
     }
 
-    for (int i = 1; i <= n - 1; i++)
+    for (int i = n; i >= 1; i--)
     {
         if (vis[i] == 0)
         {
-            if (dfs(i) == 1)
+            if (findTopoSort(i) == 1)
             {
-                cout << "Cycle" << endl;
+                cout << "Sandro fails." << endl;
                 return 0;
             }
         }
     }
 
-    cout << "No cycle" << endl;
+    while (!stk.empty())
+    {
+        cout << stk.top() << " ";
+        stk.pop();
+    }
+    cout << endl;
 
     return 0;
 }
