@@ -8,19 +8,30 @@ using namespace std;
 
 int main()
 {
-    fast;
+    FAST;
     ll t;
     cin >> t;
     while (t--)
     {
-        ll n;
-        cin >> n;
+        ll n, m;
+        cin >> n >> m;
         ll ar[n];
 
         for (int i = 0; i < n; i++)
         {
             cin >> ar[i];
         }
+
+        for (int i = 0; i < n; i++)
+        {
+            m -= ar[i];
+        }
+        if (m >= 0)
+        {
+            cout << 0 << endl;
+            continue;
+        }
+        cout << abs(m) << endl;
     }
 
     return 0;
