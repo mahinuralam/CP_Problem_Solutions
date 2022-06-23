@@ -1,24 +1,44 @@
 #include <bits/stdc++.h>
+#define FAST                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(0), cout.tie(0);
 #define ll long long
+#define endl '\n'
 using namespace std;
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
-    int testCase;
-    cin >> testCase;
-    while (testCase--)
-    {
-        ll n;
-        cin >> n;
-        ll ar[n];
+    FAST;
+    ll n, m;
+    cin >> n >> m;
 
-        for (int i = 0; i < n; i++)
+    ll ar[n];
+    map<ll, ll> mp;
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> ar[i];
+        mp[ar[i]] = i + 1;
+    }
+
+    ll cnt = 0;
+    for (int i = 0; i < n; i++)
+    {
+        ll dif = m - ar[i];
+        if (mp[dif] != 0 && mp[dif] != i + 1)
         {
-            cin >> ar[i];
+            cnt++;
+            break;
         }
     }
+
+    if (cnt == 0)
+    {
+        cout << "IMPOSSIBLE" << endl;
+        return 0;
+    }
+
+    cout << "FOUND IT!" << endl;
 
     return 0;
 }

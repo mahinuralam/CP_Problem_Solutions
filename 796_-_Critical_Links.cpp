@@ -5,14 +5,14 @@
 #define ll long long
 using namespace std;
 
+vector<pair<ll, ll>> vp;
+
 const ll SZ = 1e6 + 5;
 ll tin[SZ];
 ll low[SZ];
 ll vis[SZ];
 vector<ll> adj[SZ];
 ll timer;
-
-vector<pair<ll, ll>> vp;
 
 void dfs(ll node, ll parent, ll timer)
 {
@@ -45,8 +45,7 @@ void init()
     memset(vis, 0, sizeof(vis));
     memset(tin, -1, sizeof(tin));
     memset(low, -1, sizeof(low));
-    vp.clear();
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
         adj[i].clear();
     }
@@ -58,16 +57,7 @@ int main()
     ll n;
     while (cin >> n)
     {
-
-        memset(vis, 0, sizeof(vis));
-        memset(tin, -1, sizeof(tin));
-        memset(low, -1, sizeof(low));
         vp.clear();
-        for (int i = 0; i <= n; i++)
-        {
-            adj[i].clear();
-        }
-
         for (int i = 0; i < n; i++)
         {
             ll u, v, num;

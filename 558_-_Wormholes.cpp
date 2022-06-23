@@ -70,6 +70,8 @@ int main()
             adj.push_back(node(u, v, w));
         }
 
+        dist[0] = 0;
+
         bellmanFord(m);
 
         for (int i = 0; i < m; i++)
