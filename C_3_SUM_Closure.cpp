@@ -26,14 +26,6 @@ int main()
             mx = max(ar[i], mx);
             mn = min(ar[i], mn);
             mp[ar[i]]++;
-            if (ar[i] > 0)
-            {
-                pos += ar[i];
-            }
-            else
-            {
-                neg += ar[i];
-            }
         }
 
         sort(ar, ar + n);
@@ -55,7 +47,7 @@ int main()
             }
         }
 
-        if (f == 1 || pos != abs(neg))
+        if (f == 1)
         {
             cout << "NO" << endl;
         }

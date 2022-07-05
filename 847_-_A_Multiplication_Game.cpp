@@ -3,32 +3,51 @@
     ios_base::sync_with_stdio(false); \
     cin.tie(0), cout.tie(0);
 #define ll long long
-//#define endl '\n'
+#define endl '\n'
 using namespace std;
-
-ll can_win(ll n)
-{
-    if (n == 1)
-    {
-        return 0;
-    }
-    if (can_win(n - 2) == 1 or can_win(n - 3) == 1 or can_win(n - 4) == 1 or can_win(n - 5) == 1 or can_win(n - 6) == 1 or can_win(n - 7) == 1 or can_win(n - 8) == 1 or can_win(n - 9) == 1)
-    {
-        return 1;
-    }
-    return 0;
-}
 
 int main()
 {
     FAST;
-    ll t;
-    cin >> t;
-    while (t--)
+    ll n;
+
+    while (cin >> n)
     {
-        ll n;
-        cin >> n;
-        cout << can_win(n) << endl;
+        string s = "Stan wins.";
+        ll turn = 1;
+        while (n > 1)
+        {
+            if (turn % 2 == 0)
+            {
+                if (n % 2 == 0)
+                {
+                    n /= 2;
+                }
+                else
+                {
+                    n = (n / 2) + 1;
+                }
+
+                s = "Ollie wins.";
+            }
+            else
+            {
+                if (n % 9 == 0)
+                {
+                    n /= 9;
+                }
+                else
+                {
+                    n = (n / 9) + 1;
+                }
+
+                s = "Stan wins.";
+            }
+
+            turn++;
+        }
+
+        cout << s << endl;
     }
 
     return 0;

@@ -10,38 +10,14 @@ int main()
     cin >> testCase;
     while (testCase--)
     {
-        int n, k;
-        cin >> n >> k;
-        int ar[n];
+        ll n;
+        cin >> n;
+        ll ar[n];
 
         for (int i = 0; i < n; i++)
         {
             cin >> ar[i];
         }
-
-        int ans = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (i == 0 || i == n - 1)
-            {
-                continue;
-            }
-
-            if (ar[i] <= (ar[i - 1] + ar[i + 1]))
-            {
-                continue;
-            }
-
-            ans++;
-        }
-
-        if (k == 1)
-        {
-            cout << ceil((n - 2) / 2.0) << endl;
-            continue;
-        }
-
-        cout << ans << endl;
     }
 
     return 0;
