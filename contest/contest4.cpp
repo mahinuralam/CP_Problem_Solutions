@@ -21,7 +21,7 @@ int calculateGrundy(int n)
     if (n == 0)
         return (0);
 
-    unordered_set<int> Set; // A Hash Table
+    unordered_set<int> Set;
 
     for (int i = 0; i <= n / 2; i++)
         Set.insert(calculateGrundy(i));

@@ -28,23 +28,24 @@ int f(int ind, int target, vector<int> &ar)
 
 int main()
 {
-    int t;
+    int t, tc = 0;
     cin >> t;
     while (t--)
     {
         int n, target;
-        cin>>n>>target;
+        cin >> n >> target;
         vector<int> v;
 
-        for(int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)
         {
             int x;
-            cin>>x;
+            cin >> x;
             v.push_back(x);
         }
 
         int ans = f(n - 1, target, v);
 
+        cout << "Case " << ++tc << ": ";
         if (ans >= 1e8)
         {
             cout << -1 << endl;

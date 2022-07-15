@@ -1,0 +1,1 @@
+{"name":"Local: Crazy Calendar","url":"e:\\Solves\\CP_Problem_Solutions\\Crazy Calendar.cpp","tests":[{"id":1657370460514,"input":"1\n2 2\n1 1\n1 1","output":"Case 1: lose"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Solves\\CP_Problem_Solutions\\Crazy Calendar.cpp","group":"local","local":true}
