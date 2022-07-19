@@ -6,38 +6,42 @@
 #define endl '\n'
 using namespace std;
 
+int f(int ind, int iq, vector<ll> &v)
+{
+    if (ind == 0 || iq == 0)
+    {
+        return 1;
+    }
+
+    int notTake = f(ind - 1, iq, v);
+    int take = 0;
+    if (v[ind] <= iq)
+    {
+        f(ind - 1, iq, v);
+    }
+    else
+    {
+        f(ind - 1, iq - 1, v);
+    }
+}
+
 int main()
 {
     FAST;
 
-    ll n, m;
-    cin >> n >> m;
-    map<string, ll> mp;
-
-    for (int i = 0; i < n; i++)
+    int t;
+    cin >> t;
+    while (t--)
     {
-        string s;
-        ll x;
-        cin >> s >> x;
-        mp[s] = x;
-    }
-
-    ll total = 0;
-    while (m != 0)
-    {
-        string s, cma, tmp;
-
-        while (cin >> s)
+        ll n, k;
+        cin >> n >> k;
+        vector<ll> v;
+        string ans;
+        for (int i = 0; i < n; i++)
         {
-            // cout << s << endl;
-            if (s == ".")
-            {
-                cout << total << endl;
-                total = 0;
-                m--;
-                break;
-            }
-            total += mp[s];
+            ll x;
+            cin >> x;
+            v.push_back(x);
         }
     }
 
