@@ -2,7 +2,7 @@
 #define ll long long
 using namespace std;
 
-int f(int ind, vector<ll> &v, int need, int hv)
+int f(int ind, vector<ll> &v, int need, int cost)
 {
     if (need == hv)
     {
@@ -11,7 +11,14 @@ int f(int ind, vector<ll> &v, int need, int hv)
 
     if (ind >= v.size())
     {
+        if(need == hv){
+            return 1;
+        } else {
+            return 0;
+        }
     }
+
+    int take = f(ind + 1, v, )
 }
 
 int main()
