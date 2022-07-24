@@ -7,19 +7,24 @@
 using namespace std;
 
 string s, s1;
+vector<int> ar;
 int mx = 1e8;
+
 map<string, int> mp;
 
 int f(int pos, string &s1)
 {
     string s2;
     s2 = s1;
-    // cout << pos << " pos " << endl;
+    cout << pos << endl;
     if (pos >= 11)
     {
-        // cout << pos << " pos 11 " << endl;
-
-        // cout << s1 << endl;
+        // cout << pos << " pos" << endl;
+        // for (int i = 0; i < 12; i++)
+        // {
+        //     cout << ar[i];
+        // }
+        // cout << endl;
 
         int ans = 0;
         for (int i = 0; i < 12; i++)
@@ -39,30 +44,28 @@ int f(int pos, string &s1)
     int l = 0, r = 1, k = 2;
     while (k <= 11)
     {
-
-        if (s1[l] == '0' && s1[r] == '1' && s1[k] == '1')
+        // cout << ar[l] << " " << ar[r] << " " << ar[k] << endl;
+        if (ar[l] == 0 && ar[r] == 1 && ar[k] == 1)
         {
-            // cout << s1[l] << " if " << s1[r] << " " << s1[k] << endl;
-            s1[l] = '1';
-            s1[r] = '0';
-            s1[k] = '0';
+            ar[l] = 1;
+            ar[r] = 0;
+            ar[k] = 0;
             mp[s1] = f(pos + 1, s1);
             s1 = s2;
         }
-        else if (s1[l] == '1' && s1[r] == '1' && s1[k] == '0')
+        else if (ar[l] == 1 && ar[r] == 1 && ar[k] == 0)
         {
-            // cout << s1[l] << " else " << s1[r] << " " << s1[k] << endl;
-            s1[l] = '0';
-            s1[r] = '0';
-            s1[k] = '1';
-            mp[s1] = f(pos + 1, s1);
+            ar[l] = 0;
+            ar[r] = 0;
+            ar[k] = 1;
+            f(pos + 1, s1);
             s1 = s2;
         }
 
         l++, r++, k++;
     }
 
-    return mp[s1] = f(pos + 1, s1);
+    return mx;
 }
 
 int main()
@@ -85,7 +88,11 @@ int main()
             }
         }
 
-        // cout << s1 << endl;
+        // for (int i = 0; i < 12; i++)
+        // {
+        //     cout << ar[i];
+        // }
+        // cout << endl;
         mx = 1e8;
         f(0, s1);
 
