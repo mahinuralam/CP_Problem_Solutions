@@ -63,9 +63,11 @@ int main()
         }
 
         memset(dp, -1, sizeof(dp));
+
         ul total = ar[n];
         ul ans = f(n, 0);
         ul gg = gcd(ans, total);
+
         if (ans == 0)
         {
             cout << 0 << '\n';
@@ -78,7 +80,6 @@ int main()
             }
             else
             {
-
                 cout << ans / gg << "/" << total / gg << '\n';
             }
         }

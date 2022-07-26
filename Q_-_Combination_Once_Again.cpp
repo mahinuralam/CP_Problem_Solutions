@@ -15,7 +15,6 @@ ll C[51][51];
 ll binomialCoeff(ll n, ll k)
 {
     ll i, j;
-
     // Calculate value of Binomial Coefficient
     // in bottom up manner
     for (i = 0; i <= n; i++)

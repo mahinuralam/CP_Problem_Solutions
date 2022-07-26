@@ -11,9 +11,12 @@ int f(int ind, vector<ll> &v, int need, int cost)
 
     if (ind >= v.size())
     {
-        if(need == hv){
+        if (need == hv)
+        {
             return 1;
-        } else {
+        }
+        else
+        {
             return 0;
         }
     }
