@@ -69,7 +69,7 @@ ll rec(ll n)
     {
         return abs(add(second) - n) + 1 + rec(second);
     }
-    else if (first == second)
+    else
     {
         return 1 + rec(first);
     }

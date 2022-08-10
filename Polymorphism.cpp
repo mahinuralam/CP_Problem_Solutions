@@ -51,7 +51,7 @@ public:
 class me
 {
 public:
-    void name()
+    virtual void name()
     {
         cout << "Mahinur" << endl;
     }

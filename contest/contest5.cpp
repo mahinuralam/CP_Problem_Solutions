@@ -39,7 +39,6 @@ int f(int pos, string &s1)
     int l = 0, r = 1, k = 2;
     while (k <= 11)
     {
-
         if (s1[l] == '0' && s1[r] == '1' && s1[k] == '1')
         {
             // cout << s1[l] << " if " << s1[r] << " " << s1[k] << endl;

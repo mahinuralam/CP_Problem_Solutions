@@ -8,16 +8,16 @@
 using namespace std;
 
 // Matrix Exponentiation
-int mod;
+int mod = 1000000009;
 
-void multi(ll a[2][2], ll b[2][2], ll result[2][2])
+void multi(ll a[3][3], ll b[3][3], ll result[3][3])
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 3; i++)
     {
-        for (int j = 0; j < 2; j++)
+        for (int j = 0; j < 3; j++)
         {
             result[i][j] = 0;
-            for (int k = 0; k < 2; k++)
+            for (int k = 0; k < 3; k++)
             {
                 result[i][j] = ((result[i][j] % mod) + (a[i][k] * b[k][j]) % mod) % mod;
             }
@@ -25,23 +25,28 @@ void multi(ll a[2][2], ll b[2][2], ll result[2][2])
     }
 }
 
-void expo(ll z[2][2], ll result[2][2], ll n)
+void expo(ll z[3][3], ll result[3][3], ll n)
 {
-    ll tmp[2][2];
+    ll tmp[3][3];
 
     result[0][0] = 1;
-    result[0][1] = 0;
-    result[1][0] = 0;
-    result[1][1] = 1;
+    result[0][1] = 1;
+    result[0][2] = 0;
+    result[1][0] = 1;
+    result[1][1] = 0;
+    result[1][2] = 1;
+    result[2][0] = 1;
+    result[2][1] = 0;
+    result[2][2] = 0;
 
     while (n)
     {
         if (n % 2)
         {
             multi(result, z, tmp);
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     result[i][j] = tmp[i][j];
                 }
@@ -49,9 +54,9 @@ void expo(ll z[2][2], ll result[2][2], ll n)
         }
 
         multi(z, z, tmp);
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 3; i++)
         {
-            for (int j = 0; j < 2; j++)
+            for (int j = 0; j < 3; j++)
             {
                 z[i][j] = tmp[i][j];
             }
@@ -64,48 +69,27 @@ void expo(ll z[2][2], ll result[2][2], ll n)
 int main()
 {
     FAST;
-    ll t, cs = 0;
-    cin >> t;
 
-    while (t--)
+    ll n;
+    while (cin >> n && n)
     {
-        ll z[2][2], result[2][2];
-        memset(z, 0, sizeof(z));
+
+        ll z[3][3], result[3][3];
         memset(result, 0, sizeof(result));
 
-        ll n;
-        cin >> n;
-
-        if (n == 0)
-        {
-            break;
-        }
-
         z[0][0] = 1;
-        z[0][1] = 1;
+        z[0][1] = 0;
+        z[0][2] = 0;
         z[1][0] = 1;
         z[1][1] = 0;
+        z[1][2] = 0;
+        z[2][0] = 1;
+        z[2][1] = 0;
+        z[2][2] = 0;
 
-        mod = pow(10, m);
-        a = a % mod;
-        b = b % mod;
+        expo(z, result, n - 3);
 
-        k++;
-        cout << "Case " << ++cs << ": ";
-        if (k == 1)
-        {
-            cout << a << endl;
-            continue;
-        }
-        else if (k == 2)
-        {
-            cout << b << endl;
-            continue;
-        }
-
-        expo(z, result, k - 2);
-        cout << (((result[0][0] * b) % mod) + (result[0][1] * a) % mod) % mod << endl;
+        cout << (((result[0][0] * 2) % mod) + (result[0][1]) % mod) % mod << endl;
     }
-
     return 0;
 }

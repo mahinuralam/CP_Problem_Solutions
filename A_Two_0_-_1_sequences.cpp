@@ -28,9 +28,7 @@ int main()
             }
         }
 
-        i
-
-            if (one == m)
+        if (one ==)
         {
             cout << "NO" << endl;
         }
