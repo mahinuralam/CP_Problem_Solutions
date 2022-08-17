@@ -92,6 +92,5 @@ int main()
     ptr = &myob;
 
     ptr->name();
-    ptr->name();
     ptr->id();
 }

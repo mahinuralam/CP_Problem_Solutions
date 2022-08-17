@@ -1,0 +1,1 @@
+{"name":"Local: Divisors","url":"e:\\Solves\\CP_Problem_Solutions\\Divisors.cpp","tests":[{"id":1660586240297,"input":"3\n220 284\n486 594\n1184 1210","output":"Friendship is ideal\nFriendship is not ideal\nFriendship is ideal"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Solves\\CP_Problem_Solutions\\Divisors.cpp","group":"local","local":true}
