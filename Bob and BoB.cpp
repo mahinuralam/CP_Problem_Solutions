@@ -13,14 +13,10 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll x, a, y, b;
-        cin >> x >> a >> y >> b;
-
-        if ((x == 1 && a == 0) && (y == 1 && b == 0))
-        {
-            cout << "Yes" << endl;
-        }
-        else if (a * log(x) == b * log(y))
+        ll a, b, c, d, n;
+        cin >> n >> b >> c >> d >> a;
+        ll z = (a + b + c + d);
+        if ((2 * z) >= (n + 1))
         {
             cout << "Yes" << endl;
         }

@@ -1,0 +1,1 @@
+{"name":"Local: Bob and BoB","url":"e:\\Solves\\CP_Problem_Solutions\\Bob and BoB.cpp","tests":[{"id":1660743311078,"input":"2\n124 3 3 10 8\n124 20 20 10 20","output":"No\nYes"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Solves\\CP_Problem_Solutions\\Bob and BoB.cpp","group":"local","local":true}

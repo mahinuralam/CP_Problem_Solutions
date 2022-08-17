@@ -58,7 +58,6 @@ int main()
 
             if (check(mid, ar, m, n) == 1)
             {
-
                 l = mid + 1;
             }
             else
