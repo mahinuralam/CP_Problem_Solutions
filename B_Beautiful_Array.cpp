@@ -20,7 +20,10 @@ int main()
         ll kb = k * b;
         ll can = s - kb;
 
-        if (can > nk || (s / k) < b)
+        ll min_sum = b * k;
+        ll max_sum = n * (k - 1) + min_sum;
+
+        if (min_sum > s || s > max_sum)
         {
             cout << -1 << endl;
         }
