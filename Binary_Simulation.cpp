@@ -63,7 +63,7 @@ int main()
                 int pos;
                 cin >> pos;
                 ll res = query(pos);
-                if (res == 0)
+                if (res % 2 == 0)
                 {
                     cout << s[pos - 1] << endl;
                 }
