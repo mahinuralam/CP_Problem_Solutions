@@ -6,22 +6,6 @@
 #define endl '\n'
 using namespace std;
 
-vector<string> split(string s)
-{
-    vector<string> v;
-
-    stringstream ss(s);
-    string word;
-
-    while (ss >> word)
-    {
-        sort(word.begin() + 1, word.end() - 1);
-        v.push_back(word);
-    }
-
-    return v;
-}
-
 int main()
 {
     FAST;
@@ -29,7 +13,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n;
+        int n;
         cin >> n;
 
         vector<string> vs;
@@ -39,31 +23,38 @@ int main()
         {
             string s;
             cin >> s;
-            sort(s.begin() + 1, s.end() - 1);
-            // vs.push_back(s);
-            // cout << s << endl;
+            if (s.size() > 3)
+            {
+                sort(s.begin() + 1, s.end() - 1);
+            }
             mp[s]++;
         }
 
         int m;
         cin >> m;
         cin.ignore();
-        string s;
-        getline(cin, s);
 
-        // cout << s << endl;
-        vector<string> word = split(s);
-        int cnt = 0;
         cout << "Case " << ++cs << ":" << endl;
-        for (int i = 0; i < word.size(); i++)
+
+        for (int i = 0; i < m; i++)
         {
-            // cout << word[i] << endl;
-            if (mp[word[i]] != 0)
+            int cnt = 1;
+            string s;
+            getline(cin, s);
+
+            stringstream ss(s);
+            string word;
+
+            while (ss >> word)
             {
-                cnt += mp[word[i]];
+                if (word.size() > 3)
+                {
+                    sort(word.begin() + 1, word.end() - 1);
+                }
+                cnt *= mp[word];
             }
+            cout << cnt << endl;
         }
-        cout << cnt << endl;
     }
 
     return 0;
