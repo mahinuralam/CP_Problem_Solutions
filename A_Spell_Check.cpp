@@ -9,32 +9,31 @@ using namespace std;
 int main()
 {
     FAST;
-    ll Case;
-    cin >> Case;
-    while (Case--)
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        ll n;
+        int n;
         cin >> n;
-        string s, s1 = "Timur";
+        string s, ss = "Timur";
         cin >> s;
-        map<char, ll> mp;
+        map<char, int> mp;
         for (int i = 0; i < s.size(); i++)
         {
             mp[s[i]]++;
         }
 
-        bool f = 0;
+        int f = 0;
 
-        for (int i = 0; i < s1.size(); i++)
+        for (int i = 0; i < ss.size(); i++)
         {
-            if (mp[s1[i]] == 0)
+            if (mp[ss[i]] == 0)
             {
                 f = 1;
-                break;
             }
         }
 
-        if (f == 1 || s.size() != s1.size())
+        if (f == 1 || s.size() != ss.size())
         {
             cout << "NO" << endl;
         }

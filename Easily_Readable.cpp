@@ -53,6 +53,7 @@ int main()
                 }
                 cnt *= mp[word];
             }
+
             cout << cnt << endl;
         }
     }
