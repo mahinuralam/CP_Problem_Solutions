@@ -20,7 +20,6 @@ int main()
         vector<string> vs;
         for (int i = 0; i < 3; i++)
         {
-
             if (i == 0)
             {
                 for (int j = 0; j < n; j++)
@@ -67,8 +66,6 @@ int main()
 
         for (int i = 0; i < vs.size(); i++)
         {
-            // cout << vs[i] << endl;
-            // cout << mp1[vs[i]] << " " << mp2[vs[i]] << " " << mp3[vs[i]] << endl;
             if (mp1[vs[i]] == 1 && mp2[vs[i]] == 0 && mp3[vs[i]] == 0)
             {
                 p1 += 3;

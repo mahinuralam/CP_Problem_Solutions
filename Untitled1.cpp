@@ -1,50 +1,40 @@
-#include<bits/stdc++.h>
-#define     FAST            ios_base::sync_with_stdio(false); cin.tie(0), cout.tie(0);
+#include <bits/stdc++.h>
+#define FAST                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(0), cout.tie(0);
 #define ll long long
-//#define endl '\n'
+#define endl '\n'
 using namespace std;
+
+int dp[100][100];
+
+int fun(string s1, string s2, int i, int j)
+{
+    if (i == 0 || j == 0)
+    {
+        return 0;
+    }
+
+    if (dp[i][j] != -1)
+    {
+
+        return dp[i][j];
+    }
+
+    if (s1[i - 1] == s2[i - 1])
+    {
+        return dp[i][j] = 1 + fun(s1, s2, i - 1, j - 1);
+    }
+
+    return dp[i][j] = max(fun(s1, s2, i - 1, j), fun(s1, s2, i, j - 1));
+}
+
 int main()
 {
-
-    ll n,m;
-    cin>>n>>m;
-    multiset<ll, greater<ll> >st;
-    ll ar2[m];
-    for(int i=0; i<n; i++)
-    {
-        ll x;
-        cin>>x;
-        st.insert(x);
-    }
-
-    for(int i=0; i<m; i++)
-    {
-        cin>>ar2[i];
-    }
-
-
-
-    for(int i=0; i<m; i++)
-    {
-        auto it = st.lower_bound(ar2[i]);
-        //int x = *it;
-        //cout<<x<<" val "<<endl;
-
-        if(it==st.end())
-        {
-            cout<<-1<<endl;
-        }
-        else
-        {
-            cout<<*it<<endl;
-            st.erase(it);
-        }
-        //cout<<x<<" index "<<y<<endl;
-
-    }
-
-
+    FAST;
+    string s1 = "ashhhhd", s2 = "asd";
+    memset(dp, -1, sizeof(dp));
+    cout << fun(s1, s2, s1.size(), s2.size()) << endl;
 
     return 0;
 }
-

@@ -41,7 +41,6 @@ int main()
 
         if (flag == 1)
         {
-
             cout << "NO" << endl;
         }
         else
