@@ -1,25 +1,50 @@
 #include <bits/stdc++.h>
-#define ll long long
-#define endl '\n'
 using namespace std;
 
+void solve()
+{
+    int n, x, y;
+    cin >> n >> x >> y;
+    if (x > 0 && y > 0)
+    {
+        cout << -1 << endl;
+    }
+    else if (x == 0 and y == 0)
+    {
+        cout << -1 << endl;
+    }
+    else if ((n - 1) % max(x, y) == 0)
+    {
+        /// print
+        int _max = max(x, y);
+        int _max_print = _max;
+        //        cout << "max_print = " << _max_print << endl;
+        int cnt = 0;
+        int cur_print = 1;
+        for (int i = 1; i < n; i++)
+        {
+            cout << cur_print << " ";
+            cnt++;
+            if (cnt == _max_print)
+            {
+                cnt = 0;
+                cur_print = i + 2;
+            }
+        }
+        cout << endl;
+    }
+    else
+    {
+        cout << -1 << endl;
+    }
+}
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
-    int Case;
-    cin >> Case;
-    while (Case--)
+    long long test_case;
+    cin >> test_case;
+    while (test_case--)
     {
-        int n;
-        cin >> n;
-        int ar[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            cin >> ar[i];
-        }
+        solve();
     }
-
     return 0;
 }

@@ -1,25 +1,33 @@
 #include <bits/stdc++.h>
-#define ll long long
-#define endl '\n'
 using namespace std;
 
+void solve()
+{
+    long long n, k;
+    cin >> n >> k;
+    long long arr[n + 1];
+    for (long long i = 1; i <= n; i++)
+        cin >> arr[i];
+    long long _max = -1;
+    long long sum = 0;
+    for (long long i = 1; i <= k; i++)
+    {
+        for (long long j = i; j <= n; j += k)
+        {
+            _max = max(_max, arr[j]);
+        }
+        sum += _max;
+        _max = -1;
+    }
+    cout << sum << endl;
+}
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0), cout.tie(0);
-    int Case;
-    cin >> Case;
-    while (Case--)
+    long long test_case;
+    cin >> test_case;
+    while (test_case--)
     {
-        int n;
-        cin >> n;
-        int ar[n];
-
-        for (int i = 0; i < n; i++)
-        {
-            cin >> ar[i];
-        }
+        solve();
     }
-
     return 0;
 }
