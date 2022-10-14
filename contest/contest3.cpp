@@ -4,107 +4,59 @@
     cin.tie(0), cout.tie(0);
 #define ll long long
 #define endl '\n'
+#define sec second
+#define fir first
 using namespace std;
 
 int main()
 {
     FAST;
-    ll Case;
-    cin >> Case;
-    while (Case--)
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        ll n;
-        cin >> n;
-        map<string, ll> mp1, mp2, mp3, mp0;
-        ll ans1 = 0, ans2 = 0, ans3 = 0;
-        vector<string> word;
-        for (int i = 0; i < 3; i++)
+        ll n, k;
+        cin >> n >> k;
+
+        ll ar[n], ar2[n], ans[k];
+
+        vector<pair<ll, ll>> q;
+
+        for (ll i = 0; i < n; i++)
         {
-            if (i == 2)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    string s;
-                    cin >> s;
-                    mp3[s]++;
-                    if (mp0[s] == 0)
-                    {
-                        word.push_back(s);
-                        mp0[s]++;
-                    }
-                }
-            }
-            else if (i == 0)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    string s;
-                    cin >> s;
-                    mp1[s]++;
-                    if (mp0[s] == 0)
-                    {
-                        word.push_back(s);
-                        mp0[s]++;
-                    }
-                }
-            }
-            else if (i == 2)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    string s;
-                    cin >> s;
-                    mp2[s]++;
-                    if (mp0[s] == 0)
-                    {
-                        word.push_back(s);
-                        mp0[s]++;
-                    }
-                }
-            }
+            cin >> ar[i];
         }
 
-        for (int i = 0; i < word.size(); i++)
+        for (int i = 0; i < k; i++)
         {
-            if (mp1[word[i]] == 1 && mp2[word[i]] == 1 && mp3[word[i]] == 0)
-            {
-                ans1 += 1;
-                ans2 += 1;
-            }
-            else if (mp1[word[i]] == 1 && mp2[word[i]] == 0 && mp3[word[i]] == 0)
-            {
-                ans1 += 3;
-            }
-            else if (mp1[word[i]] == 1 && mp2[word[i]] == 0 && mp3[word[i]] == 1)
-            {
-                ans1 += 1;
-                ans3 += 1;
-            }
-            else if (mp1[word[i]] == 0 && mp2[word[i]] == 1 && mp3[word[i]] == 0)
-            {
-                ans2 += 3;
-            }
-            else if (mp1[word[i]] == 1 && mp2[word[i]] == 0 && mp3[word[i]] == 1)
-            {
-                ans1 += 1;
-                ans3 += 1;
-            }
-            else if (mp1[word[i]] == 0 && mp2[word[i]] == 0 && mp3[word[i]] == 1)
-            {
-                ans3 += 3;
-            }
-            else if (mp1[word[i]] == 0 && mp2[word[i]] == 1 && mp3[word[i]] == 1)
-            {
-                ans2 += 1;
-                ans3 += 1;
-            }
-            else if (mp1[word[i]] == 1 && mp2[word[i]] == 1 && mp3[word[i]] == 1)
-            {
-                continue;
-            }
+            ll ar2[i];
+            cin >> ar2[i];
+            q.push_back({ar2[i], i});
         }
 
-        cout << ans1 << " " << ans2 << " " << ans3 << endl;
+        sort(q.begin(), q.end());
+
+            ll total = 0, ind = 0;
+
+        for (int i = 0; i < q.size(); i++)
+        {
+            ll val = q[i].fir;
+            ll index = q[i].sec;
+
+            while (ar[ind] <= val && ind < n)
+            {
+                total += ar[ind];
+                ind++;
+            }
+
+            ans[index] = total;
+        }
+
+        for (int i = 0; i < k; i++)
+        {
+            cout << ans[i] << " ";
+        }
+        cout << endl;
     }
 
     return 0;

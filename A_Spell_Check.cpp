@@ -4,43 +4,53 @@
     cin.tie(0), cout.tie(0);
 #define ll long long
 #define endl '\n'
+#define sec second
+#define fir first
 using namespace std;
 
 int main()
 {
-    FAST;
     ll t;
     cin >> t;
     while (t--)
     {
-        int n;
+        ll n;
         cin >> n;
-        string s, ss = "Timur";
-        cin >> s;
-        map<char, int> mp;
-        for (int i = 0; i < s.size(); i++)
+
+        map<ll, vector<ll>> mp;
+
+        ll mx = -1;
+
+        for (int i = 0; i < n; i++)
         {
-            mp[s[i]]++;
+            ll x;
+            cin >> x;
+            mp[x].push_back(i);
         }
 
-        int f = 0;
-
-        for (int i = 0; i < ss.size(); i++)
+        for (auto &i : mp)
         {
-            if (mp[ss[i]] == 0)
+            sort(i.sec.begin(), i.sec.end());
+        }
+
+        for (auto &i : mp)
+        {
+            ll n = i.sec.size() - 1;
+            for (auto &j : mp)
             {
-                f = 1;
+                ll m = j.sec.size() - 1;
+                ll val1 = i.fir;
+                ll val2 = j.fir;
+                if (__gcd(val1, val2) == 1)
+                {
+                    ll a = i.sec[n];
+                    ll b = j.sec[m];
+                    mx = max(mx, (a + b + 2));
+                }
             }
         }
 
-        if (f == 1 || s.size() != ss.size())
-        {
-            cout << "NO" << endl;
-        }
-        else
-        {
-            cout << "YES" << endl;
-        }
+        cout << mx << endl;
     }
 
     return 0;

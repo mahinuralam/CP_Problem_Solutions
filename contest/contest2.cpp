@@ -9,37 +9,31 @@ using namespace std;
 int main()
 {
     FAST;
-    ll Case;
-    cin >> Case;
-    while (Case--)
+    ll t;
+    cin >> t;
+    while (t--)
     {
         ll n;
         cin >> n;
-        string s1, s2;
-        cin >> s1 >> s2;
-        bool flag = 0;
+
+        map<ll, ll> mp;
+        int f = 0;
 
         for (int i = 0; i < n; i++)
         {
-            if (s1[i] == 'G' && s2[i] == 'R')
+            ll x;
+            cin >> x;
+            if (mp[x] == 0)
             {
-                flag = 1;
+                mp[x]++;
             }
-            else if (s1[i] == 'R' && s2[i] == 'B')
+            else
             {
-                flag = 1;
-            }
-            else if (s1[i] == 'R' && s2[i] == 'G')
-            {
-                flag = 1;
-            }
-            else if (s1[i] == 'B' && s2[i] == 'R')
-            {
-                flag = 1;
+                f = 1;
             }
         }
 
-        if (flag == 1)
+        if (f == 1)
         {
             cout << "NO" << endl;
         }
