@@ -1,18 +1,26 @@
 #include <bits/stdc++.h>
-typedef long long ll;
+#define FAST                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(0), cout.tie(0);
+#define ll long long
+#define endl '\n'
 using namespace std;
-
-void solve()
-{
-}
 
 int main()
 {
-    ll test_case;
-    cin >> test_case;
-    for (ll i = 0; i < test_case; i++)
+    FAST;
+    ll t;
+    cin >> t;
+    while (t--)
     {
-        solve();
+        ll n;
+        cin >> n;
+        ll ar[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            cin >> ar[i];
+        }
     }
 
     return 0;
