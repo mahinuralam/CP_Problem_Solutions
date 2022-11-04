@@ -1,26 +1,31 @@
 #include <bits/stdc++.h>
-#define FAST                          \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(0), cout.tie(0);
-#define ll long long
-#define endl '\n'
 using namespace std;
-
 int main()
 {
-    FAST;
-    ll t;
+    int t;
     cin >> t;
     while (t--)
     {
-        ll n;
+        int n;
         cin >> n;
-        ll ar[n];
-
+        int p = 0, n = 0;
         for (int i = 0; i < n; i++)
         {
-            cin >> ar[i];
+            int x;
+            cin >> x;
+            if (x < 0)
+            {
+                n += x;
+            }
+            else
+            {
+                p += x;
+            }
         }
+
+        int ans = abs(abs(p) - abs(n))
+                      cout
+                  << ans << endl;
     }
 
     return 0;

@@ -16,10 +16,20 @@ int main()
         ll n;
         cin >> n;
         ll ar[n];
-
+        ll total = 0;
         for (int i = 0; i < n; i++)
         {
             cin >> ar[i];
+            total += ar[i];
+        }
+
+        if (total % 2 == 1)
+        {
+            cout << "Alice" << endl;
+        }
+        else
+        {
+            cout << "Bob" << endl;
         }
     }
 
