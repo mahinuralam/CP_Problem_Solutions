@@ -1,37 +1,39 @@
 #include <bits/stdc++.h>
-#define FAST                          \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(0), cout.tie(0);
-#define ll long long
-#define endl '\n'
 using namespace std;
+
+int solve(string s, int k)
+{
+    int n = s.size();
+    int j = 0, ans = 0;
+    map<char, int> mp;
+    for (int i = 0; i < n; i++)
+    {
+        mp[s[i]]++;
+
+        int mx = 0;
+        for (char ch = 'A'; ch <= 'Z'; ch++)
+        {
+            mx = max(mp[ch], mx);
+        }
+
+        while (((i - j + 1) - mx) > k)
+        {
+            mp[s[j]]--;
+            j++;
+        }
+
+        ans = max(ans, (i - j + 1));
+    }
+
+    return ans;
+}
 
 int main()
 {
-    FAST;
-    ll t;
-    cin >> t;
-    while (t--)
-    {
-        ll n;
-        cin >> n;
-        ll ar[n];
-        ll total = 0;
-        for (int i = 0; i < n; i++)
-        {
-            cin >> ar[i];
-            total += ar[i];
-        }
 
-        if (total % 2 == 1)
-        {
-            cout << "Alice" << endl;
-        }
-        else
-        {
-            cout << "Bob" << endl;
-        }
-    }
+    string str;
+    int k;
+    cin >> str >> k;
 
-    return 0;
+    cout << solve(str, k) << endl;
 }
