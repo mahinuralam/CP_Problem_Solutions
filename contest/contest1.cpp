@@ -1,61 +1,34 @@
-#include <bits/stdc++.h>
-#define FAST                          \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(0), cout.tie(0);
-#define ll long long
-using namespace std;
-
-int main()
+int n;
+cin >> n;
+vector<int> v_ori;
+for (int i = 0; i < n; i++)
 {
-    ll cs;
-    cin >> cs;
-    while (cs--)
-    {
-        ll n;
-        cin >> n;
-
-        // cout << "for " << n << endl;
-
-        string s = "BAN", str;
-
-        for (int i = 0; i < n; i++)
-        {
-            str += s;
-        }
-
-        // cout << str << endl;
-        vector<int> v1, v2;
-        int i = 0, j = str.size() - 1, cnt = 0;
-        while (i < j)
-        {
-            if (str[j] != 'N')
-            {
-                j--;
-            }
-            else
-            {
-                if (str[i] != 'N')
-                {
-                    v1.push_back(i + 1);
-                    v2.push_back(j + 1);
-                    // cout << str[i] << " " << str[j] << endl;
-                    swap(str[i], str[j]);
-                }
-                else
-                {
-                    i += 3;
-                }
-            }
-        }
-
-        cout << v1.size() << endl;
-        for (int i = 0; i < v1.size(); i++)
-        {
-            cout << v1[i] << " " << v2[i] << endl;
-        }
-
-        // cout << str << endl;
-    }
-
-    return 0;
+    int x;
+    cin >> x;
+    v_ori.push_back(x);
 }
+
+vector<int> v_first_modi(v_ori.begin(), v_ori.end()), v_last_modi(v_ori.begin(), v_ori.end());
+for (int i = 0; i < n; i++)
+{
+    if (v_first_modi[i] == 0)
+    {
+        v_first_modi[i] = 1;
+        break;
+    }
+}
+
+for (int i = n - 1; i >= 0; i--)
+{
+    if (v_last_modi[i] == 1)
+    {
+        v_last_modi[i] = 0;
+        break;
+    }
+}
+ll ori = inversion_count(v_ori, n);
+ll first_modi = inversion_count(v_first_modi, n);
+ll last_modi = inversion_count(v_last_modi, n);
+
+ll ans = max(ori, max(first_modi, last_modi));
+cout << ans << endl;

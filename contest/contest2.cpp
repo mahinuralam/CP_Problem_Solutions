@@ -1,31 +1,84 @@
 #include <bits/stdc++.h>
+#define FAST                          \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(0), cout.tie(0);
+#define ll long long
+#define endl '\n'
 using namespace std;
+
+ll cnt(vector<int> &ar, int n)
+{
+    ll zo = 0, total = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (ar[i] == 0)
+        {
+            zo++;
+        }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        if (ar[i] == 0)
+        {
+            zo--;
+        }
+        else
+        {
+            total += zo;
+        }
+    }
+
+    return total;
+}
+
 int main()
 {
-    int t;
-    cin >> t;
-    while (t--)
+    FAST;
+    int CASE;
+    cin >> CASE;
+    while (CASE--)
     {
         int n;
+
         cin >> n;
-        int p = 0, n = 0;
+
+        vector<int> v1, v2, v3;
+
         for (int i = 0; i < n; i++)
         {
             int x;
             cin >> x;
-            if (x < 0)
+            v1.push_back(x);
+        }
+
+        v2 = v1;
+        v3 = v1;
+
+        for (int i = n - 1; i >= 0; i--)
+        {
+            if (v3[i] == 1)
             {
-                n += x;
-            }
-            else
-            {
-                p += x;
+                v3[i] = 0;
+                break;
             }
         }
 
-        int ans = abs(abs(p) - abs(n))
-                      cout
-                  << ans << endl;
+        for (int i = 0; i < n; i++)
+        {
+            if (v2[i] == 0)
+            {
+                v2[i] = 1;
+                break;
+            }
+        }
+
+        ll y = cnt(v2, n);
+        ll x = cnt(v1, n);
+        ll z = cnt(v3, n);
+        ll all = max(x, max(y, z));
+
+        cout << all << endl;
     }
 
     return 0;
