@@ -39,46 +39,13 @@ int main()
     cin >> CASE;
     while (CASE--)
     {
-        int n;
-
-        cin >> n;
-
-        vector<int> v1, v2, v3;
-
+        int n, c, k;
+        cin >> n >> c >> k;
+        int ar[n], mx = 0;
         for (int i = 0; i < n; i++)
         {
-            int x;
-            cin >> x;
-            v1.push_back(x);
+            cin >> ar[i];
         }
-
-        v2 = v1;
-        v3 = v1;
-
-        for (int i = n - 1; i >= 0; i--)
-        {
-            if (v3[i] == 1)
-            {
-                v3[i] = 0;
-                break;
-            }
-        }
-
-        for (int i = 0; i < n; i++)
-        {
-            if (v2[i] == 0)
-            {
-                v2[i] = 1;
-                break;
-            }
-        }
-
-        ll y = cnt(v2, n);
-        ll x = cnt(v1, n);
-        ll z = cnt(v3, n);
-        ll all = max(x, max(y, z));
-
-        cout << all << endl;
     }
 
     return 0;
