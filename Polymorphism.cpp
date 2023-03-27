@@ -3,7 +3,7 @@
     ios_base::sync_with_stdio(false); \
     cin.tie(0), cout.tie(0);
 #define ll long long
-//#define endl '\n'
+// #define endl '\n'
 using namespace std;
 
 // Compile time polymorphism
@@ -21,6 +21,32 @@ public:
         return a + b;
     }
 };
+
+// function overriding
+
+class Base
+{
+public:
+    void print()
+    {
+        cout << " BASE " << endl;
+    }
+};
+
+class Child : public Base
+{
+public:
+    void print()
+    {
+        cout << " CHILD " << endl;
+    }
+};
+
+int main()
+{
+    Child obj;
+    obj.print();
+}
 
 // Operator overloading
 class opOverload
@@ -76,21 +102,21 @@ public:
     }
 };
 
-int main()
-{
-    // calculate obj;
+// int main()
+// {
+//     // calculate obj;
 
-    // cout << obj.add(1, 2) << endl;
-    // cout << obj.add(2.0, 3.0) << endl;
+//     // cout << obj.add(1, 2) << endl;
+//     // cout << obj.add(2.0, 3.0) << endl;
 
-    // opOverload op1(1, 2), op2(2, 3), op3;
-    // op3 = op1 + op2;
-    // op3.print();
+//     // opOverload op1(1, 2), op2(2, 3), op3;
+//     // op3 = op1 + op2;
+//     // op3.print();
 
-    me *ptr;
-    my myob;
-    ptr = &myob;
+//     me *ptr;
+//     my myob;
+//     ptr = &myob;
 
-    ptr->name();
-    ptr->id();
-}
+//     ptr->name();
+//     ptr->id();
+// }
